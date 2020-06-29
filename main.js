@@ -31,9 +31,32 @@ let coin = {
                 stateArray[toStringIndex] = "heads"
             }
         }
-        return mainElement.append(stateArray)
 },
 toHTML: function() {
+    let stateArray = this.state.split("") 
+    mainElement.append(divElement)
+    for (toHTMLIndex = 0; toHTMLIndex < numberOfFlips; toHTMLIndex += 1) {
+
+        if (stateArray[toHTMLIndex] === "1") {
+            stateArray[toHTMLIndex] = image
+
+        } if (stateArray[toHTMLIndex] === "0") {
+            stateArray[toHTMLIndex] = image2
+        }
+    }
+},
+display20Flips: function () {
+    let displayFlips = this.state.split("") 
+    for (displayFlipsIndex = 0; displayFlipsIndex < numberOfFlips; displayFlipsIndex += 1) {
+        if (displayFlips[displayFlipsIndex] === "1" ) {
+            displayFlips[displayFlipsIndex] = "tails"
+        } if (displayFlips[displayFlipsIndex] === "0") {
+            displayFlips[displayFlipsIndex] = "heads"
+        }
+    }
+    return mainElement.append(displayFlips)
+},
+display20Images: function () {
     let stateArray = this.state.split("") 
     mainElement.append(divElement)
     for (toHTMLIndex = 0; toHTMLIndex < numberOfFlips; toHTMLIndex += 1) {
@@ -51,5 +74,8 @@ toHTML: function() {
 coin.flip()
 coin.toString()
 coin.toHTML()
+coin.display20Flips()
+coin.display20Images()
+
 
 console.log(coin.state)
